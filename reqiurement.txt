@@ -1,3 +1,2 @@
-install gradio
-install open ai
-API key
+ gradio
+open ai
