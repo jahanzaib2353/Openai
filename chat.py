@@ -2,9 +2,6 @@ import os
 import openai
 import streamlit as st
 
-# Set your OpenAI API key
-openai.api_key = "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"
-
 start_sequence = "\nAI:"
 restart_sequence = "\nHuman: "
 
@@ -26,7 +23,13 @@ def generate_response(input_text, chat_history):
 def chatbot_interface():
     global chat_history
 
-    st.title("My Openai Chatbot")
+    st.title("My OpenAI Chatbot")
+
+    api_key = st.text_input("OpenAI API Key")
+
+    if st.button("Set API Key"):
+        openai.api_key = api_key
+        st.success("API Key set successfully!")
 
     user_input = st.text_input("User Input")
 
